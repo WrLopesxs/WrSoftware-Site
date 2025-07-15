@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sistema completo para gestão de lanchonetes - agilidade no atendimento e eficiência operacional">
+  <meta name="keywords" content="lanchonete, sistema, gestão, PDV, cozinha, WrSoftware">
+  <meta name="author" content="Wender Lopes">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <title>WrSoftware - Sistema de Gestão Completo para Lanchonetes</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="header">
+
+    </button>
+    <div class="container">
+      <div class="logo-container">
+        <h1 class="logo">
+          <span class="logo-icon"><i class="fas fa-utensils"></i></span>
+          <span>Wr</span>Software
+        </h1>
+        <span class="slogan">Soluções para Lanchonetes</span>
+            <button id="themeToggle" class="theme-toggle" aria-label="Alternar tema">
+        <i class="fas fa-moon"></i> <!-- Ícone de lua (modo escuro) -->
+        <span class="theme-text">Escuro</span>
+      </div>
+      
+      <nav class="main-nav">
+        <ul>
+          <li><a href="#telas"><i class="fas fa-desktop"></i> Telas</a></li>
+          <li><a href="#funcionalidades"><i class="fas fa-list-check"></i> Funcionalidades</a></li>
+          <li><a href="#planos"><i class="fas fa-tags"></i> Planos</a></li>
+          <li><a href="#contato"><i class="fas fa-envelope"></i> Contato</a></li>
+        </ul>
+      </nav>
+      
+      <button class="mobile-menu-toggle" aria-label="Abrir menu">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <!-- Seção das Telas (Botões) -->
+    <section id="telas" class="screens-section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Telas do <span>Sistema</span></h2>
+          <p class="section-subtitle">Clique para visualizar cada funcionalidade</p>
+        </div>
+        
+        <div class="screens-grid">
+          <button class="screen-btn" onclick="openImageModal('Img/foto1.png', 'Tela Para o Balconista')">
+            <span class="btn-icon"><i class="fas fa-cash-register"></i></span>
+            <span class="btn-text">Balconista</span>
+          </button>
+
+          <button class="screen-btn" onclick="openImageModal('Img/Foto2.png', 'Tela de Cancelar Pedidos')">
+            <span class="btn-icon"><i class="fas fa-ban"></i></span>
+            <span class="btn-text">Cancelar Pedidos</span>
+          </button>
+
+          <button class="screen-btn" onclick="openImageModal('Img/foto3.png', 'Tela De Cadastro de Produtos')">
+            <span class="btn-icon"><i class="fas fa-boxes"></i></span>
+            <span class="btn-text">Cadastrar Produtos</span>
+          </button>
+
+          <button class="screen-btn" onclick="openImageModal('Img/foto4.png', 'Tela Da Cozinha')">
+            <span class="btn-icon"><i class="fas fa-blender"></i></span>
+            <span class="btn-text">Cozinha</span>
+          </button>
+
+          <button class="screen-btn" onclick="openImageModal('Img/foto5.png', 'Tela Para o Balconista')">
+            <span class="btn-icon"><i class="fas fa-user-tie"></i></span>
+            <span class="btn-text">Balconista</span>
+          </button>
+
+          <button class="screen-btn" onclick="openImageModal('Img/foto6.png', 'Tela De Login')">
+            <span class="btn-icon"><i class="fas fa-key"></i></span>
+            <span class="btn-text">Login</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Modal para imagens -->
+    <div id="imageModal" class="modal">
+      <div class="modal-content">
+        <span class="close-modal" onclick="closeModal()">&times;</span>
+        <h3 id="modalTitle">Título</h3>
+        <img id="modalImage" src="" alt="" loading="lazy">
+      </div>
+    </div>
+
+    <!-- Seção de Funcionalidades -->
+    <section id="funcionalidades" class="features-section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Funcionalidades <span>Completas</span></h2>
+          <p class="section-subtitle">Tudo que sua lanchonete precisa em um único sistema</p>
+        </div>
+        
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-bolt"></i>
+            </div>
+            <h3>Pedidos Rápidos</h3>
+            <p>Interface otimizada para registro ágil de pedidos durante o rush</p>
+          </div>
+          
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-kitchen-set"></i>
+            </div>
+            <h3>Cozinha Integrada</h3>
+            <p>Tela exclusiva para cozinha com atualização em tempo real</p>
+          </div>
+          
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-file-invoice-dollar"></i>
+            </div>
+            <h3>Gestão Financeira</h3>
+            <p>Relatórios completos de vendas, custos e lucratividade</p>
+          </div>
+          
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-chart-line"></i>
+            </div>
+            <h3>Análise de Dados</h3>
+            <p>Gráficos e indicadores para tomada de decisão estratégica</p>
+          </div>
+          
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-receipt"></i>
+            </div>
+            <h3>Documentação</h3>
+            <p>Emissão de XML, PDF e controle fiscal completo</p>
+          </div>
+          
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-lock"></i>
+            </div>
+            <h3>Segurança</h3>
+            <p>Controle de usuários e registro de todas as operações</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seção de Planos -->
+    <section id="planos" class="pricing-section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Planos <span>Flexíveis</span></h2>
+          <p class="section-subtitle">Escolha a opção ideal para o seu negócio</p>
+        </div>
+        
+        <div class="pricing-grid">
+          <div class="pricing-card">
+            <div class="pricing-header">
+              <h3>Inicial</h3>
+              <div class="price">
+                <span class="currency">R$</span>
+                <span class="amount">50</span>
+                <span class="period">instalação</span>
+              </div>
+            </div>
+            <ul class="pricing-features">
+              <li><i class="fas fa-check"></i> Instalação e configuração</li>
+              <li><i class="fas fa-check"></i> Treinamento básico</li>
+              <li><i class="fas fa-check"></i> 7 dias de suporte</li>
+            </ul>
+            <a href="#contato" class="btn btn-outline">Contratar</a>
+          </div>
+          
+          <div class="pricing-card featured">
+            <div class="pricing-badge">Popular</div>
+            <div class="pricing-header">
+              <h3>Mensal</h3>
+              <div class="price">
+                <span class="currency">R$</span>
+                <span class="amount">80</span>
+                <span class="period">/mês</span>
+              </div>
+            </div>
+            <ul class="pricing-features">
+              <li><i class="fas fa-check"></i> Todas funcionalidades</li>
+              <li><i class="fas fa-check"></i> Suporte prioritário</li>
+              <li><i class="fas fa-check"></i> Atualizações inclusas</li>
+              <li><i class="fas fa-check"></i> Backup na nuvem</li>
+            </ul>
+            <a href="#contato" class="btn btn-primary">Contratar</a>
+          </div>
+          
+          <div class="pricing-card">
+            <div class="pricing-header">
+              <h3>Anual</h3>
+              <div class="price">
+                <span class="currency">R$</span>
+                <span class="amount">800</span>
+                <span class="period">/ano</span>
+              </div>
+              <small>(Economize R$160)</small>
+            </div>
+            <ul class="pricing-features">
+              <li><i class="fas fa-check"></i> Todas funcionalidades</li>
+              <li><i class="fas fa-check"></i> Suporte 24/7</li>
+              <li><i class="fas fa-check"></i> Atualizações premium</li>
+              <li><i class="fas fa-check"></i> Backup diário</li>
+              <li><i class="fas fa-check"></i> Consultoria grátis</li>
+            </ul>
+            <a href="#contato" class="btn btn-outline">Contratar</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="roi" class="section">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Veja quanto você pode <span>economizar</span></h2>
+      <p class="section-subtitle">Calcule o retorno do seu investimento com o WrSoftware</p>
+    </div>
+
+    <div class="roi-calculator">
+      <div class="roi-form">
+        <div class="form-group">
+          <label for="dailyOrders">Pedidos diários</label>
+          <input type="range" id="dailyOrders" min="20" max="500" value="100">
+          <div class="range-value"><span id="dailyOrdersValue">100</span> pedidos/dia</div>
+        </div>
+
+        <div class="form-group">
+          <label for="averageTicket">Ticket médio</label>
+          <div class="input-group">
+            <span class="input-prefix">R$</span>
+            <input type="number" id="averageTicket" min="10" max="200" value="25">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="employees">Funcionários</label>
+          <input type="range" id="employees" min="1" max="20" value="3">
+          <div class="range-value"><span id="employeesValue">3</span> funcionários</div>
+        </div>
+
+        <button id="calculateRoi" class="btn btn-primary">Calcular ROI</button>
+      </div>
+
+      <div class="roi-results">
+        <div class="roi-card">
+          <h3>Economia mensal estimada</h3>
+          <div class="roi-amount" id="monthlySavings">R$ 0</div>
+          <div class="roi-detail">
+            <p><i class="fas fa-clock"></i> <span id="timeSaved">0</span> horas poupadas</p>
+            <p><i class="fas fa-bolt"></i> <span id="efficiencyGain">0</span>% mais eficiência</p>
+          </div>
+        </div>
+
+        <div class="roi-card highlight">
+          <h3>Retorno em</h3>
+          <div class="roi-amount" id="paybackPeriod">0 dias</div>
+          <div class="roi-detail">
+            <p>Para cada R$1 investido</p>
+            <p>Retorna <span id="roiMultiple">R$0</span> em 1 ano</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="roi-explanation">
+      <h3>Como calculamos:</h3>
+      <ul>
+        <li><i class="fas fa-check"></i> Redução de 30% no tempo de atendimento</li>
+        <li><i class="fas fa-check"></i> Diminuição de 25% em erros de pedidos</li>
+        <li><i class="fas fa-check"></i> Economia de 1h diária por funcionário</li>
+        <li><i class="fas fa-check"></i> Aumento de 15% no ticket médio</li>
+      </ul>
+    </div>
+  </div>
+</section>
+<section id="faq" class="section">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Perguntas <span>Frequentes</span></h2>
+      <p class="section-subtitle">Tire suas dúvidas sobre o WrSoftware</p>
+    </div>
+
+    <div class="faq-container">
+      <div class="faq-search">
+        <input type="text" id="faqSearch" placeholder="Buscar perguntas...">
+        <i class="fas fa-search"></i>
+      </div>
+
+      <div class="faq-categories">
+        <button class="faq-category active" data-category="all">Todas</button>
+        <button class="faq-category" data-category="planos">Planos</button>
+        <button class="faq-category" data-category="funcionamento">Funcionamento</button> 
+        <button class="faq-category" data-category="seguranca">Segurança</button>
+      </div>
+
+      <div class="faq-accordion">
+        <!-- Plano Básico -->
+        <div class="faq-item" data-category="planos">
+          <button class="faq-question">
+            <span>O plano básico inclui suporte permanente?</span>
+            <i class="fas fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            <p>O plano básico inclui 7 dias de suporte completo após a instalação. Após este período, o suporte é oferecido mediante contratação adicional ou upgrade para nossos planos mensais/anuais que incluem suporte permanente.</p>
+          </div>
+        </div>
+         <div class="faq-accordion">
+        <!-- Plano Básico -->
+        <div class="faq-item" data-category="funcionamento">
+          <button class="faq-question">
+            <span>Quais são os Funcionamentos do Software?</span>
+            <i class="fas fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            <p>O WrSoftware é um sistema leve e completo para lanchonetes. Ele permite ao balconista montar pedidos rapidamente e enviar diretamente para a tela da cozinha. Os pedidos são registrados em XML e PDF, com opção de gerar relatórios e gráficos de vendas. Também há controle de cancelamento de pedidos, licença mensal com validade e uma interface simples de usar. Basta instalar em dois computadores (balcão e cozinha) e começar a utilizar.</p>
+          </div>
+        </div>
+           <div class="faq-accordion">
+        <!-- Plano Básico -->
+        <div class="faq-item" data-category="seguranca">
+          <button class="faq-question">
+            <span>Como é a segurança do WrSoftware?</span>
+            <i class="fas fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            <p>O WrSoftware foi desenvolvido com foco na simplicidade e segurança:
+
+✅ Login com senha criptografada (SHA-256)
+
+✅ Limite de tentativas no login para impedir acessos indevidos
+
+✅ Controle de acesso por nível de usuário (Balconista ou Cozinha)
+
+✅ Cancelamento de pedidos exige justificativa e é registrado
+
+✅ Licença com validade configurável, impedindo uso indevido após vencimento
+
+✅ Os dados são salvos em arquivos XML locais, sem depender da internet
+
+Além disso, o sistema não coleta dados sensíveis nem envia informações para fora, garantindo total privacidade para sua lanchonete.</p>
+          </div>
+        </div>
+
+
+    
+
+        <!-- Mais perguntas aqui... -->
+      </div>
+
+      <div class="faq-cta">
+        <p>Ainda com dúvidas?</p>
+        <a href="#contato" class="btn btn-primary">Fale conosco</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+    <!-- Seção de Contato -->
+    <section id="contato" class="contact-section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Pronto para <span>transformar</span> seu negócio?</h2>
+          <p class="section-subtitle">Entre em contato para uma demonstração ou tirar dúvidas</p>
+        </div>
+        
+        <div class="contact-content">
+          <div class="contact-info">
+            <div class="info-item">
+              <i class="fas fa-phone-alt"></i>
+              <h3>Telefone</h3>
+              <p>(15) 99258-7986</p>
+            </div>
+            
+            <div class="info-item">
+              <i class="fab fa-whatsapp"></i>
+              <h3>WhatsApp</h3>
+              <p><a href="https://wa.me/5515992587986" target="_blank">Enviar mensagem</a></p>
+            </div>
+            
+            <div class="info-item">
+              <i class="fab fa-github"></i>
+              <h3>GitHub</h3>
+              <p><a href="https://github.com/WrLopesxs/WrSoftware" target="_blank">Ver repositório</a></p>
+            </div>
+            
+            <div class="info-item">
+              <i class="fas fa-envelope"></i>
+              <h3>Email</h3>
+              <p>wender.lopesxs@gmail.com</p>
+            </div>
+          </div>
+          
+              <form id="whatsappForm" class="contact-form">
+  <div class="form-group">
+    <input type="text" id="userName" placeholder="Seu nome" required>
+  </div>
+  
+  <div class="form-group">
+    <input type="tel" id="userPhone" placeholder="Seu WhatsApp (com DDD)" required>
+  </div>
+  
+  <div class="form-group">
+    <textarea id="userMessage" placeholder="Sua mensagem" required></textarea>
+  </div>
+  
+  <button type="submit" class="btn btn-primary">
+    <i class="fab fa-whatsapp"></i> Enviar para WhatsApp
+  </button>
+</form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-about">
+          <h3 class="logo">
+            <span class="logo-icon"><i class="fas fa-utensils"></i></span>
+            <span>Wr</span>Software
+          </h3>
+          <p>Soluções inteligentes para gestão de lanchonetes e restaurantes.</p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="https://github.com/WrLopesxs/WrSoftware" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://wa.me/5515992587986" target="_blank"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+        
+        <div class="footer-links">
+          <h3>Links Rápidos</h3>
+          <ul>
+            <li><a href="#telas"><i class="fas fa-chevron-right"></i> Telas</a></li>
+            <li><a href="#funcionalidades"><i class="fas fa-chevron-right"></i> Funcionalidades</a></li>
+            <li><a href="#planos"><i class="fas fa-chevron-right"></i> Planos</a></li>
+            <li><a href="#contato"><i class="fas fa-chevron-right"></i> Contato</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-newsletter">
+          <h3>Receba Novidades</h3>
+          <p>Cadastre-se para receber atualizações e dicas.</p>
+          <form>
+            <input type="email" placeholder="Seu email">
+            <button type="submit"><i class="fas fa-paper-plane"></i></button>
+          </form>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2025 WrSoftware. Todos os direitos reservados. Desenvolvido por <strong>Wender Lopes</strong>.</p>
+        <div class="legal-links">
+          <a href="#">Termos de Uso</a>
+          <a href="#">Política de Privacidade</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <a href="#top" class="back-to-top" aria-label="Voltar ao topo">
+    <i class="fas fa-arrow-up"></i>
+  </a>
+
+  <script src="script.js"></script>
+</body>
+</html>
