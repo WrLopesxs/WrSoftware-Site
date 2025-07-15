@@ -2,9 +2,7 @@
 
 This is the promotional website for WrSoftware — a simple and efficient point-of-sale (POS) system developed for snack bars and small food establishments.
 
-## 🌐 Live Preview
 
-(Coming soon, or link it here after deployment)
 
 ## 📦 Features
 
