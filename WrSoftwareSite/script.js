@@ -1,10 +1,20 @@
 document.addEventListener('DOMContentLoaded', function() {
-  // ===== Menu Mobile =====
+  // Preloader
+  const preloader = document.querySelector('.preloader');
+  if (preloader) {
+    window.addEventListener('load', function() {
+      setTimeout(function() {
+        preloader.classList.add('fade-out');
+      }, 1000);
+    });
+  }
+
+  // Menu Mobile
   const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
   const mainNav = document.querySelector('.main-nav');
 
   if (mobileMenuToggle && mainNav) {
-    mobileMenuToggle.addEventListener('click', () => {
+    mobileMenuToggle.addEventListener('click', function() {
       mainNav.classList.toggle('active');
       mobileMenuToggle.innerHTML = mainNav.classList.contains('active') 
         ? '<i class="fas fa-times"></i>' 
@@ -12,23 +22,23 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Fechar menu ao clicar em um link
-    document.querySelectorAll('.main-nav a').forEach(link => {
-      link.addEventListener('click', () => {
+    document.querySelectorAll('.main-nav a').forEach(function(link) {
+      link.addEventListener('click', function() {
         mainNav.classList.remove('active');
         mobileMenuToggle.innerHTML = '<i class="fas fa-bars"></i>';
       });
     });
   }
 
-  // ===== Scroll Suave =====
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  // Scroll Suave
+  document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
     anchor.addEventListener('click', function(e) {
       e.preventDefault();
       const targetId = this.getAttribute('href');
       const targetElement = document.querySelector(targetId);
       
       if (targetElement) {
-        const headerHeight = document.querySelector('.header')?.offsetHeight || 80;
+        const headerHeight = document.querySelector('.header').offsetHeight || 80;
         window.scrollTo({
           top: targetElement.offsetTop - headerHeight,
           behavior: 'smooth'
@@ -37,10 +47,10 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
-  // ===== Header Fixo com Efeito Scroll =====
+  // Header Fixo com Efeito Scroll
   const header = document.querySelector('.header');
   if (header) {
-    window.addEventListener('scroll', () => {
+    window.addEventListener('scroll', function() {
       if (window.scrollY > 100) {
         header.classList.add('scrolled');
       } else {
@@ -49,10 +59,10 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  // ===== Botão "Voltar ao Topo" =====
+  // Botão "Voltar ao Topo"
   const backToTopBtn = document.querySelector('.back-to-top');
   if (backToTopBtn) {
-    window.addEventListener('scroll', () => {
+    window.addEventListener('scroll', function() {
       if (window.scrollY > 300) {
         backToTopBtn.classList.add('visible');
       } else {
@@ -60,7 +70,7 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
 
-    backToTopBtn.addEventListener('click', () => {
+    backToTopBtn.addEventListener('click', function() {
       window.scrollTo({
         top: 0,
         behavior: 'smooth'
@@ -68,13 +78,13 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  // ===== Animação ao Scroll =====
-  const animateOnScroll = () => {
-    const elements = document.querySelectorAll('.feature-card, .benefit-item, .pricing-card, .info-item');
+  // Animação ao Scroll
+  const animateOnScroll = function() {
+    const elements = document.querySelectorAll('.feature-card, .pricing-card, .info-item, .section-header');
     
     if (elements.length > 0) {
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
+      const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
           if (entry.isIntersecting) {
             entry.target.classList.add('animate-fadeIn');
             observer.unobserve(entry.target);
@@ -82,22 +92,24 @@ document.addEventListener('DOMContentLoaded', function() {
         });
       }, { threshold: 0.1 });
 
-      elements.forEach(element => observer.observe(element));
+      elements.forEach(function(element) {
+        observer.observe(element);
+      });
     }
   };
 
   // Inicia a animação
   animateOnScroll();
 
-  // ===== Validação do Formulário WhatsApp =====
+  // Validação do Formulário WhatsApp
   const whatsappForm = document.getElementById('whatsappForm');
   if (whatsappForm) {
     whatsappForm.addEventListener('submit', function(e) {
       e.preventDefault();
       
-      const name = document.getElementById('userName')?.value.trim();
-      let phone = document.getElementById('userPhone')?.value.replace(/\D/g, '');
-      const message = document.getElementById('userMessage')?.value.trim();
+      const name = document.getElementById('userName').value.trim();
+      let phone = document.getElementById('userPhone').value.replace(/\D/g, '');
+      const message = document.getElementById('userMessage').value.trim();
 
       // Validação
       if (!name || name.length < 3) {
@@ -132,7 +144,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  // ===== Dark Mode Toggle =====
+  // Dark Mode Toggle
   const themeToggle = document.getElementById('themeToggle');
   if (themeToggle) {
     const themeIcon = themeToggle.querySelector('i');
@@ -147,7 +159,7 @@ document.addEventListener('DOMContentLoaded', function() {
     updateButton(savedTheme);
 
     // Alterna ao clicar
-    themeToggle.addEventListener('click', () => {
+    themeToggle.addEventListener('click', function() {
       const currentTheme = document.documentElement.getAttribute('data-theme');
       const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
       
@@ -167,100 +179,129 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     }
   }
-});
-// FAQ Accordion
-document.querySelectorAll('.faq-question').forEach(question => {
-  question.addEventListener('click', () => {
-    const item = question.parentNode;
-    item.classList.toggle('active');
-    
-    // Close other open items
-    document.querySelectorAll('.faq-item').forEach(otherItem => {
-      if (otherItem !== item && otherItem.classList.contains('active')) {
-        otherItem.classList.remove('active');
-      }
+
+  // FAQ Accordion
+  document.querySelectorAll('.faq-question').forEach(function(question) {
+    question.addEventListener('click', function() {
+      const item = this.parentNode;
+      item.classList.toggle('active');
+      
+      // Close other open items
+      document.querySelectorAll('.faq-item').forEach(function(otherItem) {
+        if (otherItem !== item && otherItem.classList.contains('active')) {
+          otherItem.classList.remove('active');
+        }
+      });
     });
   });
-});
 
-// FAQ Search
-document.getElementById('faqSearch').addEventListener('input', (e) => {
-  const searchTerm = e.target.value.toLowerCase();
-  
-  document.querySelectorAll('.faq-item').forEach(item => {
-    const question = item.querySelector('.faq-question span').textContent.toLowerCase();
-    const answer = item.querySelector('.faq-answer p').textContent.toLowerCase();
-    
-    if (question.includes(searchTerm) || answer.includes(searchTerm)) {
-      item.style.display = 'block';
-    } else {
-      item.style.display = 'none';
-    }
-  });
-});
-// ROI Calculator
-document.addEventListener('DOMContentLoaded', function() {
-  // Update range value displays
-  document.getElementById('dailyOrders').addEventListener('input', function() {
-    document.getElementById('dailyOrdersValue').textContent = this.value;
+  // FAQ Search
+  const faqSearch = document.getElementById('faqSearch');
+  if (faqSearch) {
+    faqSearch.addEventListener('input', function(e) {
+      const searchTerm = e.target.value.toLowerCase();
+      
+      document.querySelectorAll('.faq-item').forEach(function(item) {
+        const question = item.querySelector('.faq-question span').textContent.toLowerCase();
+        const answer = item.querySelector('.faq-answer').textContent.toLowerCase();
+        
+        if (question.includes(searchTerm) || answer.includes(searchTerm)) {
+          item.style.display = 'block';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    });
+  }
+
+  // FAQ Category Filter
+  document.querySelectorAll('.faq-category').forEach(function(category) {
+    category.addEventListener('click', function() {
+      document.querySelector('.faq-category.active').classList.remove('active');
+      this.classList.add('active');
+      
+      const selectedCategory = this.dataset.category;
+      
+      document.querySelectorAll('.faq-item').forEach(function(item) {
+        if (selectedCategory === 'all' || item.dataset.category === selectedCategory) {
+          item.style.display = 'block';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    });
   });
 
-  document.getElementById('employees').addEventListener('input', function() {
-    document.getElementById('employeesValue').textContent = this.value;
-  });
-
-  // Calculate ROI
-  document.getElementById('calculateRoi').addEventListener('click', function() {
+  // ROI Calculator
+  const calculateROI = function() {
     const dailyOrders = parseInt(document.getElementById('dailyOrders').value);
     const averageTicket = parseInt(document.getElementById('averageTicket').value);
     const employees = parseInt(document.getElementById('employees').value);
     
-    // Calculations (simplified example)
+    // Cálculos (exemplo simplificado)
     const monthlyRevenue = dailyOrders * averageTicket * 30;
-    const efficiencyGain = 15 + (employees * 2); // 15% base + 2% per employee
-    const timeSaved = employees * 20; // 20h per employee per month
-    const monthlySavings = monthlyRevenue * (efficiencyGain / 100) + (employees * 800); // R$800 per employee
+    const efficiencyGain = 15 + (employees * 2); // 15% base + 2% por funcionário
+    const timeSaved = employees * 20; // 20h por funcionário por mês
+    const monthlySavings = monthlyRevenue * (efficiencyGain / 100) + (employees * 800); // R$800 por funcionário
     
-    // Payback period (assuming system cost of R$1000)
+    // Período de retorno (considerando custo do sistema de R$1000)
     const systemCost = 1000;
     const paybackDays = Math.ceil(systemCost / (monthlySavings / 30));
     const roiMultiple = (monthlySavings * 12 / systemCost).toFixed(1);
     
-    // Update UI
+    // Atualiza UI
     document.getElementById('monthlySavings').textContent = `R$ ${Math.round(monthlySavings).toLocaleString('pt-BR')}`;
     document.getElementById('timeSaved').textContent = timeSaved;
     document.getElementById('efficiencyGain').textContent = efficiencyGain;
     document.getElementById('paybackPeriod').textContent = `${paybackDays} dias`;
     document.getElementById('roiMultiple').textContent = `R$${roiMultiple}`;
+  };
+
+  // Atualiza valores dos ranges
+  document.getElementById('dailyOrders').addEventListener('input', function() {
+    document.getElementById('dailyOrdersValue').textContent = this.value;
+    calculateROI();
   });
 
-  // Initial calculation
-  document.getElementById('calculateRoi').click();
-});
-window.addEventListener('scroll', function() {
-  const scrollPosition = window.pageYOffset;
-  document.querySelector('.parallax-bg').style.transform = `translateY(${scrollPosition * 0.5}px)`;
-});
+  document.getElementById('averageTicket').addEventListener('input', function() {
+    calculateROI();
+  });
 
-// FAQ Category Filter
-document.querySelectorAll('.faq-category').forEach(category => {
-  category.addEventListener('click', () => {
-    document.querySelector('.faq-category.active').classList.remove('active');
-    category.classList.add('active');
-    
-    const selectedCategory = category.dataset.category;
-    
-    document.querySelectorAll('.faq-item').forEach(item => {
-      if (selectedCategory === 'all' || item.dataset.category === selectedCategory) {
-        item.style.display = 'block';
-      } else {
-        item.style.display = 'none';
-      }
+  document.getElementById('employees').addEventListener('input', function() {
+    document.getElementById('employeesValue').textContent = this.value;
+    calculateROI();
+  });
+
+  // Cálculo inicial
+  calculateROI();
+
+  // Inicializa Particles.js
+  if (typeof particlesJS !== 'undefined' && document.getElementById('particles-js')) {
+    particlesJS('particles-js', {
+      "particles": {
+        "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
+        "color": { "value": "#FF6B6B" },
+        "shape": { "type": "circle", "stroke": { "width": 0, "color": "#000000" } },
+        "opacity": { "value": 0.5, "random": true },
+        "size": { "value": 3, "random": true },
+        "line_linked": { "enable": true, "distance": 150, "color": "#FF6B6B", "opacity": 0.4, "width": 1 },
+        "move": { "enable": true, "speed": 2, "direction": "none", "random": true, "straight": false, "out_mode": "out" }
+      },
+      "interactivity": {
+        "detect_on": "canvas",
+        "events": {
+          "onhover": { "enable": true, "mode": "grab" },
+          "onclick": { "enable": true, "mode": "push" },
+          "resize": true
+        },
+        "modes": { "grab": { "distance": 140, "line_linked": { "opacity": 1 } } }
+      },
+      "retina_detect": true
     });
-  });
+  }
 });
 
-// ===== Funções Globais do Modal =====
+// Funções Globais do Modal
 function openImageModal(imageSrc, title) {
   const modal = document.getElementById('imageModal');
   const modalImg = document.getElementById('modalImage');
@@ -290,8 +331,38 @@ function closeModal() {
 }
 
 // Fecha ao clicar fora da imagem
-window.addEventListener('click', (e) => {
+window.addEventListener('click', function(e) {
   if (e.target === document.getElementById('imageModal')) {
     closeModal();
   }
+  // Animação de Scroll
+function setupScrollAnimations() {
+  const animatedElements = document.querySelectorAll('.animate-scroll');
+  
+  // Configura o Intersection Observer
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.setProperty('--animation-order', entry.target.dataset.animationOrder || 0);
+        entry.target.classList.add('animate');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  });
+
+  // Observa cada elemento
+  animatedElements.forEach((element, index) => {
+    element.dataset.animationOrder = index % 5; // Cicla de 0 a 4 para os delays
+    observer.observe(element);
+  });
+}
+
+// Chame esta função no DOMContentLoaded
+document.addEventListener('DOMContentLoaded', function() {
+  setupScrollAnimations();
+  // ... (seus outros códigos existentes)
+});
 });
