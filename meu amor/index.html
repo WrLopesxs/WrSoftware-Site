@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Um tributo especial ao nosso amor - Nossa história em um só lugar">
+  <title>Nosso Amor Eterno | Um Tributo Especial</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>❤️</text></svg>">
+  <style>
+    :root {
+      --primary-color: #e91e63;
+      --secondary-color: #ffd6e0;
+      --accent-color: #c2185b;
+      --text-color: #444;
+      --light-text: #777;
+      --white: #ffffff;
+      --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      --transition: all 0.3s ease;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Dancing Script', cursive, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #ffd6e0, #ffe6f2);
+      color: var(--text-color);
+      text-align: center;
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    header {
+      padding: 3rem 2rem;
+      background: rgba(255, 255, 255, 0.8);
+      margin-bottom: 2rem;
+      border-bottom: 3px solid var(--primary-color);
+      position: relative;
+      overflow: hidden;
+    }
+
+    header h1 {
+      font-size: 3.5rem;
+      color: var(--primary-color);
+      margin-bottom: 0.5rem;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+      position: relative;
+      z-index: 2;
+    }
+
+    header::before {
+      content: "❤️";
+      position: absolute;
+      font-size: 15rem;
+      opacity: 0.05;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 1;
+    }
+
+    .nav-dots {
+      position: fixed;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 100;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: rgba(233, 30, 99, 0.5);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .dot.active {
+      background: var(--primary-color);
+      transform: scale(1.3);
+    }
+
+    .section {
+      padding: 4rem 0;
+      scroll-margin-top: 20px;
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      color: var(--primary-color);
+      margin-bottom: 2rem;
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-title::after {
+      content: "";
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 50%;
+      height: 3px;
+      background: linear-gradient(to right, transparent, var(--primary-color), transparent);
+    }
+
+    .card {
+      background: var(--white);
+      margin: 2rem auto;
+      padding: 2.5rem;
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+      max-width: 800px;
+      transition: var(--transition);
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    .message-text {
+      font-size: 1.5rem;
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+    .signature {
+      font-style: italic;
+      text-align: right;
+      color: var(--accent-color);
+      font-weight: bold;
+      font-size: 1.3rem;
+      margin-top: 1.5rem;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      padding: 2rem;
+    }
+
+    .gallery-item {
+      position: relative;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      cursor: pointer;
+    }
+
+    .gallery-img {
+      width: 100%;
+      height: auto;
+      max-height: 400px;
+      object-fit: contain; /* Alterado para não cortar a imagem */
+      transition: var(--transition);
+      display: block;
+      margin: 0 auto;
+    }
+
+    .gallery-item:hover .gallery-img {
+      transform: scale(1.05);
+    }
+
+    .gallery-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(0, 0, 0, 0.7);
+      color: white;
+      padding: 10px;
+      transform: translateY(100%);
+      transition: var(--transition);
+    }
+
+    .gallery-item:hover .gallery-caption {
+      transform: translateY(0);
+    }
+
+    .music-player {
+      background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+      padding: 2rem;
+      border-radius: 15px;
+      color: white;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .music-title {
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+    }
+
+    footer {
+      margin-top: 4rem;
+      padding: 2rem;
+      background: rgba(255, 255, 255, 0.9);
+      border-top: 1px solid rgba(0, 0, 0, 0.1);
+      font-size: 1.1rem;
+    }
+
+    .hearts {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 999;
+    }
+
+    .heart {
+      position: absolute;
+      bottom: -10px;
+      color: var(--primary-color);
+      font-size: 20px;
+      animation: floatUp 5s linear infinite;
+      opacity: 0.7;
+    }
+
+    @keyframes floatUp {
+      0% { transform: translateY(0) scale(0.5); opacity: 0.7; }
+      50% { opacity: 1; }
+      100% { transform: translateY(-110vh) scale(1.5); opacity: 0; }
+    }
+
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2.5rem;
+      }
+
+      .section-title {
+        font-size: 2rem;
+      }
+
+      .message-text {
+        font-size: 1.2rem;
+      }
+
+      .gallery {
+        grid-template-columns: 1fr;
+      }
+
+      .nav-dots {
+        display: none;
+      }
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="hearts"></div>
+
+  <div class="nav-dots">
+    <div class="dot active" data-section="header"></div>
+    <div class="dot" data-section="message"></div>
+    <div class="dot" data-section="gallery"></div>
+    <div class="dot" data-section="music"></div>
+  </div>
+
+  <header id="header" class="section">
+    <div class="container">
+      <h1>Para Você, Meu Amor Eterno</h1>
+      <p class="subtitle">Cada momento contigo é um capítulo da nossa história</p>
+    </div>
+  </header>
+
+  <section id="message" class="section">
+    <div class="container">
+      <h2 class="section-title">Mensagem do Coração</h2>
+      <div class="card">
+        <p class="message-text">
+          Oi meu amor vim fazer essa cartinha para agradecer você, Obrigado por me amar por sempre me apoiar e me ouvir sou muito grato por ter voce comigo, voce é umas das coisas que eu mais orei a Deus para ser realizada, amo cada detalizinho seu, seu sorriso seus olhos sua risada, tudo em voce eu amo, obrigado por me amarS2.
+        </p>
+        <p class="message-text">
+          Obrigado por ser minha princesa, minha confidente, meu tudo. Cada dia ao seu lado é um presente que guardo 
+          com todo carinho no mais profundo do meu ser.
+        </p>
+        <p class="signature">Com amor eterno, seu Branquelo ❤️</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="gallery" class="section">
+    <div class="container">
+      <h2 class="section-title">Nossos Momentos</h2>
+      <div class="gallery">
+        <div class="gallery-item">
+          <img src="img/3.jpeg" alt="Nós dois juntos" class="gallery-img">
+          <div class="gallery-caption">Felizes juntos</div>
+        </div>
+        <div class="gallery-item">
+          <img src="img/2.jpeg" alt="Momentos felizes" class="gallery-img">
+          <div class="gallery-caption">Rindo à toa</div>
+        </div>
+        <div class="gallery-item">
+          <img src="img/1.jpeg" alt="Meu amor" class="gallery-img">
+          <div class="gallery-caption">Amor da minha vida</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="music" class="section">
+    <div class="container">
+      <h2 class="section-title">Nossa Trilha Sonora</h2>
+      <div class="card">
+        <div class="music-player">
+          <h3 class="music-title">Nossa Música</h3>
+          <iframe style="border-radius:12px" 
+    src="https://open.spotify.com/embed/track/1eFlkymohjGtRnnYGabg8s" 
+    width="100%" 
+    height="152" 
+    frameBorder="0" 
+    allowfullscreen="" 
+    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+    loading="lazy"></iframe></div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>Feito com todo o ❤️ do mundo para você</p>
+      <p>Nosso amor é minha maior inspiração</p>
+    </div>
+  </footer>
+
+  <script>
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.classList.add("heart");
+      heart.textContent = "❤";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.fontSize = Math.random() * 20 + 15 + "px";
+      heart.style.animationDuration = (Math.random() * 3 + 2) + "s";
+      document.querySelector(".hearts").appendChild(heart);
+      setTimeout(() => heart.remove(), 5000);
+    }
+    setInterval(createHeart, 300);
+
+    const dots = document.querySelectorAll('.dot');
+    const sections = document.querySelectorAll('.section');
+
+    function updateActiveDot() {
+      const scrollPosition = window.scrollY + 100;
+
+      sections.forEach((section, index) => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.offsetHeight;
+
+        if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+          dots.forEach(dot => dot.classList.remove('active'));
+          dots[index].classList.add('active');
+        }
+      });
+    }
+
+    dots.forEach((dot, index) => {
+      dot.addEventListener('click', () => {
+        sections[index].scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+
+    window.addEventListener('scroll', updateActiveDot);
+    window.addEventListener('load', updateActiveDot);
+  </script>
+</body>
+</html>
